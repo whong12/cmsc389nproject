@@ -1,1 +1,54 @@
 "# cmsc389nproject" 
+CMSC389N Project Ideas:
+
+Notification when new message is sent
+	Audio and visual cue, if the window is not in focus.
+
+Make Profile Pictures for each user
+	Add in a field in SQL database
+	Display to the left of username in chat
+
+Add in Passwords
+	Add in field in SQL database
+	Add field to form
+	Use javascript to enforce particular settings for passwords (at least 1 capital letter, at least 1 digit, at least 1 special character, at least 6 characters long)
+
+Add way for users to report and ban other users
+	Add field to SQL database that designates whether a user is banned or not
+	There should be a button that links to a form that users can fill out
+	Form would include things like
+		Username of person to report
+		Checkboxes for options of why they are reporting the user
+		Comment box
+	The form would send an email to an admin where they can review the form
+	Admin can edit the specific field that designates whether the user is banned or not
+	If user tries to login, but they are banned, then do not let them login and tell them to contact the administrator
+
+Support for adding images/video
+	Either use image link or upload a file with the correct extension (.jpg, .jpeg, .png, .gif)
+		Uploaded file stored in a folder and linked to with img tag
+	Video: embed code
+
+Metadata for each message
+	Timestamps
+	Sequential ID
+	Sender username
+
+Search for previous messages
+	Use their separate database with all messages, with metadata such as
+		-time the message was sent
+		-who sent it
+-sequential id for each message, so we can find context of the message (show 3-4 messages that were before and after it)
+
+Font decorations
+	Bold, underline, italic
+	Font color?
+
+Private messages
+	Message user directly (inbox feature or separate chat room)
+
+User Settings
+	-Display timestamps on/off
+	-default font  color
+	-choose between color schemes/themes
+	

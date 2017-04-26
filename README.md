@@ -1,5 +1,7 @@
 "# cmsc389nproject" 
-CMSC389N Project Ideas:
+CMSC389N Project Tasks:
+
+Create Basic chat with template (by 29th)
 
 Notification when new message is sent
 	Audio and visual cue (like how facebook has the "New Message From X" appears on the Title

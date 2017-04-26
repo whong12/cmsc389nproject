@@ -8,6 +8,7 @@ Create Basic chat with template (by 29th)
 
 'Users' database:
 	-username (string)
+	-password (string) (hashed)
 	-propic (image itself, binary object)
 	-[settings - colors, etc. to be supported later]
 

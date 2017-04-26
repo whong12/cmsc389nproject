@@ -1,0 +1,4 @@
+create database chatbox;
+use chatbox;
+
+create table Users (name varchar(50) primary key not null, password varchar(50), picture blob, banned enum('T','F'));

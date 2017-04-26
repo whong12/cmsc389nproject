@@ -7,11 +7,11 @@ Create Basic chat with template (by 29th)
 	-User settings page (delete profile, update settngs, etc)
 	
 'Messages' database:
-	messageid (sequential id) (int)
-	content (string)
-	timestamp (datetime)
-	sender (string) (foreign key to usernamme database)
-	target (default 'all', can be a uername if we decide to support private messages)
+	-messageid (sequential id) (int)
+	-content (string)
+	-timestamp (datetime)
+	-sender (string) (foreign key to usernamme database)
+	-target (default 'all', can be a uername if we decide to support private messages)
 	
 Notification when new message is sent
 	Audio and visual cue (like how facebook has the "New Message From X" appears on the Title

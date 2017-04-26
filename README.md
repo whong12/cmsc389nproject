@@ -4,7 +4,7 @@ CMSC389N Project Tasks:
 Create Basic chat with template (by 29th)
 	-Daniel: Login page (go thru database). provide create table command so we can easily create the same table
 	-Wilson: Chatbox (store messages in database with metadata, provide create table command)
-	-User settings page (delete profile, update settngs, etc)
+	-Chris: User settings page (delete profile, update settngs, etc)
 	
 'Messages' database:
 	-messageid (sequential id) (int)

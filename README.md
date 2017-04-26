@@ -2,9 +2,16 @@
 CMSC389N Project Tasks:
 
 Create Basic chat with template (by 29th)
-	-Add SQL functionality (persistent usernames/passwords/pictures)
+	-Daniel: Login page (go thru database). provide create table command so we can easily create the same table
+	-Wilson: Chatbox (store messages in database with metadata, provide create table command)
+	-User settings page (delete profile, update settngs, etc)
 	
-	
+'Messages' database:
+	messageid (sequential id) (int)
+	content (string)
+	timestamp (datetime)
+	sender (string) (foreign key to usernamme database)
+	target (default 'all', can be a uername if we decide to support private messages)
 	
 Notification when new message is sent
 	Audio and visual cue (like how facebook has the "New Message From X" appears on the Title

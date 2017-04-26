@@ -5,7 +5,8 @@ Create Basic chat with template (by 29th)
 	-Daniel: Login page (go thru database). provide create table command so we can easily create the same table
 	-Wilson: Chatbox (store messages in database with metadata, provide create table command)
 	-Chris: User settings page (delete profile, update settngs, etc)
-
+	-Jason: Adminstrative/banning
+	
 'Users' database:
 	-username (string) 50 max
 	-password (string) (hashed)

@@ -7,16 +7,16 @@ Create Basic chat with template (by 29th)
 	-Chris: User settings page (delete profile, update settngs, etc)
 
 'Users' database:
-	-username (string)
+	-username (string) 50 max
 	-password (string) (hashed)
 	-propic (image itself, binary object)
 	-[settings - colors, etc. to be supported later]
 
 'Messages' database:
 	-messageid (sequential id) (int)
-	-content (string)
+	-content (string) 250
 	-timestamp (datetime)
-	-sender (string) (foreign key to usernamme database)
+	-sender (string) 50 max char(foreign key to usernamme database)
 	-target (default 'all', can be a uername if we decide to support private messages)
 	
 Notification when new message is sent

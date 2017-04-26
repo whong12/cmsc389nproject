@@ -2,7 +2,7 @@
 CMSC389N Project Ideas:
 
 Notification when new message is sent
-	Audio and visual cue, if the window is not in focus.
+	Audio and visual cue (like how facebook has the "New Message From X" appears on the Title
 
 Make Profile Pictures for each user
 	Add in a field in SQL database
@@ -34,21 +34,9 @@ Metadata for each message
 	Sequential ID
 	Sender username
 
-Search for previous messages
-	Use their separate database with all messages, with metadata such as
-		-time the message was sent
-		-who sent it
--sequential id for each message, so we can find context of the message (show 3-4 messages that were before and after it)
-
 Font decorations
 	Bold, underline, italic
 	Font color?
 
 Private messages
 	Message user directly (inbox feature or separate chat room)
-
-User Settings
-	-Display timestamps on/off
-	-default font  color
-	-choose between color schemes/themes
-	

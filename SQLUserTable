@@ -2,3 +2,10 @@ create database chatbox;
 use chatbox;
 
 create table Users (name varchar(50) primary key not null, password varchar(50), picture blob, banned enum('T','F'));
+CREATE TABLE `Messages` ( 
+`messageid` INT NOT NULL , 
+`content` VARCHAR(250) NOT NULL , 
+`timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+`sender` VARCHAR(50) NOT NULL , 
+`target` VARCHAR(50) NOT NULL DEFAULT 'all' , 
+PRIMARY KEY (`messageid`))

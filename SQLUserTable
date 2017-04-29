@@ -8,4 +8,4 @@ CREATE TABLE `Messages` (
 `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP , 
 `sender` VARCHAR(50) NOT NULL , 
 `target` VARCHAR(50) NOT NULL DEFAULT 'all' , 
-PRIMARY KEY (`messageid`))
+PRIMARY KEY (`messageid`));

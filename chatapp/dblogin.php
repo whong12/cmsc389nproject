@@ -1,6 +1,6 @@
 <?php
 	$host = "localhost";
-	$user = "root";
-	$password = "maryland";
+	$user = "cmsc389N";
+	$password = "terps";
 	$database = "chatbox";
 ?>

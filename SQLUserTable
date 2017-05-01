@@ -9,3 +9,5 @@ CREATE TABLE `Messages` (
 `sender` VARCHAR(50) NOT NULL , 
 `target` VARCHAR(50) NOT NULL DEFAULT 'all' , 
 PRIMARY KEY (`messageid`));
+
+create table Reports (name varchar(50), checkbox varchar(50), comment varchar(250));

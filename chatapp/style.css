@@ -1,0 +1,15 @@
+html * {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.container{
+  max-width:840px;
+  margin-top: 20px;
+}
+
+.form-inline {
+	margin-top: 1em;
+}
+.form-horizontal .form-group input{
+	padding-left: 10em;
+}

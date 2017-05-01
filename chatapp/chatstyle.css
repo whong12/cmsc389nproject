@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+font:12px arial;
+}
+$chatwindow{
+width:95%;
+}
+#usermsg {
+width:400px;
+padding:3px;
+width:70%;
+border:5px solid #ACD8F0; 
+}
+#chatbox {
+text-align:left;
+margin-bottom:5px;
+float: left;
+padding:3px;
+background:#fff;
+height:270px;
+width:70%;
+border:5px solid #ACD8F0;
+overflow:auto; 
+}
+#loggedin {
+text-align:left;
+margin-bottom:5px;
+padding:3px;
+background:#fff;
+height:270px;
+width:20%;
+border:5px solid #ACD8F0;
+overflow:auto; 
+}
+  
+</style>
+</html>

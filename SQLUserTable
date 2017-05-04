@@ -1,7 +1,7 @@
 create database chatbox;
 use chatbox;
 
-create table Users (name varchar(50) primary key not null, password varchar(50), picture blob, banned enum('T','F'));
+create table Users (name varchar(50) primary key not null, password varchar(1000), picture blob, banned enum('T','F'));
 CREATE TABLE `Messages` ( 
 `messageid` INT NOT NULL AUTO_INCREMENT, 
 `content` VARCHAR(250) NOT NULL , 

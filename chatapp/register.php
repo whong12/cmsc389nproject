@@ -6,11 +6,10 @@
 	<body>
 		<?php
 			include 'dblogin.php';
-			if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['verified']) && isset($_POST['profilePic'])) {
+			if (isset($_POST['register'])) {
 				$username = trim($_POST['username']);
 				$password2 = trim($_POST['password']);
 				$verified = trim($_POST['verified']);
-				$profilePic = $_POST['profilePic'];
 				
 				if ($password2 === $verified) {
 					if ((strchr($password2, "@") != FALSE || strchr($password2, "$") != FALSE || strchr($password2, "!") != FALSE) && preg_match("/[0-9]/", $password2) 
@@ -28,6 +27,7 @@
 									$num_rows = $result->num_rows;
 									if ($num_rows === 0) {
 										$hashed = password_hash($password2, PASSWORD_DEFAULT);
+										$profilePic = addslashes(file_get_contents($_FILES['profilePic']['tmp_name']));
 										$query = "insert into users values(\"$username\",\"$hashed\",\"$profilePic\",'F')";
 										$result = $db_connection->query($query);
 										if (!$result) {
@@ -55,7 +55,7 @@
 			
 				$body =<<<heredoc
 				<h3> Register for Chatroom Account </h3>
-				<form action="register.php" method="POST">	
+				<form action="register.php" method="POST" enctype="multipart/form-data">	
 					Username: <input type="text" name="username"> </input> <br />
 					Note: Passwords must meet the following requirements:
 					<ol> 
@@ -67,7 +67,7 @@
 					Password: <input type="password" name="password" required> </input> <br />
 					Verify Password <input type="password" id="verified" name="verified" required> </input> <br />
 					Profile Picture <input type="file" id="profilePic" name="profilePic" accept="image/*" required> </input> <br />
-					<input type="submit" value="Register"> </input>
+					<input type="submit" name="register" value="Register"> </input>
 				</form>
 heredoc;
 				echo $body;

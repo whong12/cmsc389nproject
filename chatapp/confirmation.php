@@ -4,14 +4,7 @@
 		<title> Confirmation </title>
 	</head>
 	<body>
-		<h1> User succesfully added with following information </h1>
-		<?php
-			$SESSION_START();
-			$body =<<<heredoc
-			Username: $_SESSION['username'];
-			Password: $_SESSION['password'];
-heredoc;
-		?>
+		<h1> User succesfully registered </h1> <br />
 		<a href="login.php"> Return to Login Page </a>
 	</body>
 </HTML>

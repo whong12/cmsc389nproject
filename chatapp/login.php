@@ -1,52 +1,57 @@
-<?
-#handle login authentification. Keeps track of currently logged in users.
-
-class LoginSystem {
-	var $loggedin;
-
-	function LoginSystem() {
-		$this->loggedin = array();
-	}
-
-function getLoginBox() {
-$sLogoutForm = '<a href="'.$_SERVER['PHP_SELF'].'?logout=1">logout</a>';
-if ((int)$_REQUEST['logout'] == 1) {
-if (isset($_COOKIE['member_name']) && isset($_COOKIE['member_pass']))
-$this->simple_logout();
-}
-if ($_REQUEST['username'] && $_REQUEST['password']) {
-if ($this->check_login($_REQUEST['username'], MD5($_REQUEST['password']))) {
-$this->simple_login($_REQUEST['username'], $_REQUEST['password']);
-return 'Hello ' . $_REQUEST['username'] . '! ' . $sLogoutForm;
-} else {
-return 'Username or Password is incorrect' . $sLoginForm;
-}
-} else {
-if ($_COOKIE['member_name'] && $_COOKIE['member_pass']) {
-if ($this->check_login($_COOKIE['member_name'], $_COOKIE['member_pass'])) {
-return 'Hello ' . $_COOKIE['member_name'] . '! ' . $sLogoutForm;
-}
-}
-return $sLoginForm;
-}
-}
-function simple_login($sName, $sPass) {
-$this->simple_logout();
-$sMd5Password = MD5($sPass);
-$iCookieTime = time() + 24*60*60*30;
-setcookie("member_name", $sName, $iCookieTime, '/');
-$_COOKIE['member_name'] = $sName;
-setcookie("member_pass", $sMd5Password, $iCookieTime, '/');
-$_COOKIE['member_pass'] = $sMd5Password;
-}
-function simple_logout() {
-setcookie('member_name', '', time() - 96 * 3600, '/');
-setcookie('member_pass', '', time() - 96 * 3600, '/');
-unset($_COOKIE['member_name']);
-unset($_COOKIE['member_pass']);
-}
-function check_login($sName, $sPass) {
-return ($this->loggedin[$sName] == $sPass);
-}
-}
-?>
+<!DOCTYPE HTML>
+	<head>
+		<meta charset="UTF-8" />
+		<title> Chatroom Login </title>
+	</head>
+	<body>
+		<?php 
+			include 'dblogin.php';
+			if (isset($_POST['username']) && isset($_POST['password'])) {
+				$username = trim($_POST['username']);
+				$password2 = trim($_POST['password']);
+				$db_connection = new mysqli($host, $user, $password, $database);
+				if ($db_connection->connect_error) {
+					echo "<h1> Error connecting to database </h1>";
+				}
+				else {
+					$query = "select * from users where name=\"$username\"";
+					$result = $db_connection->query($query);
+					if (!$result) {
+						echo "<h1> Error </h1>";
+					}
+					else {
+						if ($result->num_rows === 0) {
+							echo "<h1> No User Found with Specified Username </h1>";
+						}
+						else {
+							$row = $result->fetch_array(MYSQLI_ASSOC);
+							$hashed = $row['password'];
+							$banned = $row['banned'];
+							if (password_verify($password2,$hashed)) {
+								if ($banned == 'F') {
+									header('Location: index.php');
+								}
+								else {
+									echo "<h1> User has been banned by admin. </h1>";
+								}
+							}
+							else {
+								echo "<h1> Invalid Password </h1>";
+							}
+						}
+					}
+				}
+			}
+			
+				$body=<<<heredoc
+				<h3> Login to Chatroom </h3> 
+				<form action="login.php" method="POST">	
+					Username: <input type="text" name="username"> </input> <br /> <br />
+					Password: <input type="password" name="password"> </input> <br /> <br />
+					<a href="register.php"> Don't have an account?</a> &nbsp &nbsp &nbsp <input type="submit" value="Login"> </input>
+				</form>
+heredoc;
+				echo $body;
+		?>
+	</body>
+</HTML>

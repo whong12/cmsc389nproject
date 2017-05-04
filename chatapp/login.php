@@ -29,6 +29,7 @@
 							$banned = $row['banned'];
 							if (password_verify($password2,$hashed)) {
 								if ($banned == 'F') {
+									setcookie('user', $username, 0, "/", 'localhost', false, false);
 									header('Location: index.php');
 								}
 								else {

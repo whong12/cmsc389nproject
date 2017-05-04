@@ -14,9 +14,6 @@ $loginwindow .= <<<EOLW
 </div>
 EOLW;
 
-setcookie('user', 'testuser', 0, "/", 'localhost', false, false);
-$_COOKIE['user'] = "testuser";
-
 #once logged in, load last 20 messages.
 $current_user = "<p>Logged in as: ".$_COOKIE['user']."</p><br>";
 $db_connection = new mysqli($host, $user, $password, $database);

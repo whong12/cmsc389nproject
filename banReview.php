@@ -1,13 +1,13 @@
 <?php
 
 	require_once("pageGenerator.php");
-	require_once ("dbLogin.php");
+	require_once ("dblogin.php");
 	require_once("helper.php");
 
 	if(isset($_POST['report'])) {
 		$name = $_POST['report'];
 
-		$db_connection = new mysqli($host, $user, $dbpassword, $database);
+		$db_connection = new mysqli($host, $user, $password, $database);
 	
 		if ($db_connection->connect_error) {
 			die($db_connection->connect_error);

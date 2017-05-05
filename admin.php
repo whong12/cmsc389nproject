@@ -1,15 +1,14 @@
 <?php
 
 	require_once("pageGenerator.php");
-	require_once ("dbLogin.php");
 	require_once("helper.php");
 
 	$password = '$2y$10$kYOSKqkpb0ZN/d5S/UY1w.aBP96vbFF5mhTsKli258ORy/qkBTewu';
 
 	if(isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']) &&
 	    password_verify($_SERVER['PHP_AUTH_PW'], $password) && $_SERVER['PHP_AUTH_USER'] == 'admin') {
-
-		$db_connection = new mysqli($host, $user, $dbpassword, $database);
+		include 'dblogin.php';
+		$db_connection = new mysqli($host, $user, $password, $database);
 	
 		if ($db_connection->connect_error) {
 			die($db_connection->connect_error);

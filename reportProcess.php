@@ -7,6 +7,8 @@
 
 	if(isset($_POST['confirm'])) {
 		$banName = $_POST['banName'];
+		$checkbox = $_POST['checkbox'];
+		$comment = $_POST['comment'];
 
 		$db_connection = new mysqli($host, $user, $password, $database);
 	
@@ -14,26 +16,21 @@
 			die($db_connection->connect_error);
 		}
 
-		$query = "update `Users` set `banned` = 'T' where (`name`='$banName');";
+		$query = "insert into `Reports` (`name`, `checkbox`, `comment`) values
+		('$banName' , '$checkbox', '$comment')";
 
 		$db_result = $db_connection->query($query);
 		if (!$db_result) {
-			die("Update failed: ". $db_connection->error);
-		}
-
-		$query = "delete from `Reports` where (`name`='$banName');";
-		$db_result = $db_connection->query($query);
-		if (!$db_result) {
-			die("Update failed: ". $db_connection->error);
+			die("Report failed: ". $db_connection->error);
 		}
 		else {
-			$body .= 'Successfully banned user: '.$banName;
+			$body .= 'Successfully reported user: '.$banName;
 		}
 
 		$body .= "<br><br><button class='btn btn-primary' id='back'>Back</button>
   						<script> var btn = document.getElementById('back');
   								 btn.addEventListener('click', function() {
-      							 document.location.href = 'admin.php';});</script>";
+      							 document.location.href = 'index.php';});</script>";
 		$page = generatePage($body, "Confirmation Page");
 		echo $page;
 
